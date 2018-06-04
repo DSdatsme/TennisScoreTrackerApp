@@ -8,5 +8,9 @@
     <color name="myWhite">#fff</color>
     <color name="activityBg">#099FFF</color>
     <color name="declaration">#4f0a0d</color>
+    <color name="oceanic_blue">#099FFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="orange">#FF6D00</color>
 
 </resources>

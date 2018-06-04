@@ -1,496 +1,511 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/button_border"
-    android:orientation="vertical"
-    tools:context="com.example.dsdatsme.scorecard.MainActivity">
+    android:layout_height="wrap_content">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/myBlack"
-        android:minHeight="?attr/actionBarSize">
+        android:layout_height="match_parent"
+        android:background="@drawable/button_border"
+        android:orientation="vertical"
+        tools:context="com.example.dsdatsme.scorecard.MainActivity">
 
-        <LinearLayout
-            android:layout_width='wrap_content'
-            android:layout_height='wrap_content'
-            android:gravity="center_vertical">
+        ////title bar
 
-            <ImageView
-                android:layout_width="@dimen/tennis_ball"
-                android:layout_height="@dimen/tennis_ball"
-                android:src="@drawable/tennis_ball_icon" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/table_content_font_size"
-                android:text="@string/tennis"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-        </LinearLayout>
-
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/myBlack"
-            android:gravity="right">
+            android:minHeight="?attr/actionBarSize">
 
-            <ImageButton
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width='wrap_content'
+                android:layout_height='wrap_content'
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/tennis_ball"
+                    android:layout_height="@dimen/tennis_ball"
+                    android:src="@drawable/tennis_ball_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/table_content_font_size"
+                    android:text="@string/tennis"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/myBlack"
-                android:onClick="shareButton"
-                android:paddingRight="@dimen/default_margin"
-                android:src="@drawable/ic_share_white_24dp"
-                android:textColor="@color/myWhite"
+                android:gravity="right">
 
-                android:textSize="16dp" />
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="@string/sets"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="1"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="2"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="3"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="4"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="5"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="@string/total"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_header_font_size" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/player_1_name_scoreboard_textview"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:hint="NAME 1"
-                android:text="@string/p_1"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_1_set_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_1_set_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_1_set_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_1_set_4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_1_set_5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_1_final"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/player_2_name_scoreboard_textview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="@string/p_2"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_2_set_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_2_set_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_2_set_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_2_set_4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_2_set_5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-
-            <TextView
-                android:id="@+id/player_2_final"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/cell_shape"
-                android:gravity="center_horizontal"
-                android:text="0"
-                android:textColor="@color/myWhite"
-                android:textSize="@dimen/table_content_font_size" />
-        </TableRow>
-
-    </TableLayout>
-
-    <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin"
-        android:background="@drawable/widescreen"
-        android:orientation="vertical"
-        android:padding="30dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0">
-
-            <TextView
-                android:id="@+id/player_1_name_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:hint="@string/player_1"
-                android:textSize="@dimen/player_header" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#000" />
-
-            <TextView
-                android:id="@+id/player_2_name_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:hint="@string/player_2"
-                android:textSize="@dimen/player_header" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/myBlack" />
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/current_set_textview_main"
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:paddingRight="@dimen/table_content_font_size"
-                    android:text="@string/set"
-                    android:textSize="@dimen/set_size"
+                    android:background="@color/myBlack"
+                    android:onClick="shareButton"
+                    android:paddingRight="@dimen/default_margin"
+                    android:src="@drawable/ic_share_white_24dp"
+                    android:textColor="@color/myWhite"
 
-                    android:textStyle="bold" />
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        ////set score board
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow>
 
                 <TextView
-                    android:id="@+id/current_set_textview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/current_set_textview_main"
-                    android:paddingLeft="@dimen/default_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="@string/sets"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
                     android:text="1"
-                    android:textSize="@dimen/set_size"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="2"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="3"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="4"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="5"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="@string/total"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_header_font_size" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/player_1_name_scoreboard_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:hint="NAME 1"
+                    android:text="@string/p_1"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_1_set_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_1_set_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_1_set_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_1_set_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_1_set_5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_1_final"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/player_2_name_scoreboard_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="@string/p_2"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_2_set_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_2_set_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_2_set_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_2_set_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_2_set_5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+
+                <TextView
+                    android:id="@+id/player_2_final"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/myWhite"
+                    android:textSize="@dimen/table_content_font_size" />
+            </TableRow>
+
+        </TableLayout>
+
+        ////Green TV frame with shows set values
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:background="@drawable/widescreen"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0">
+
+                <TextView
+                    android:id="@+id/player_1_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/player_1"
+                    android:textSize="@dimen/player_header" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#000" />
+
+                <TextView
+                    android:id="@+id/player_2_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/player_2"
+                    android:textSize="@dimen/player_header" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#000" />
+                android:background="@color/myBlack" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/current_set_textview_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:paddingRight="@dimen/table_content_font_size"
+                        android:text="@string/set"
+                        android:textSize="@dimen/set_size"
+
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/current_set_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/current_set_textview_main"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:text="1"
+                        android:textSize="@dimen/set_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="0">
+
+                <TextView
+                    android:id="@+id/player_1_score_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textSize="@dimen/score_text" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/myBlack" />
+
+                <TextView
+                    android:id="@+id/player_2_score_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textSize="@dimen/score_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/reset_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/roundedcorner"
+                    android:onClick="resetButton"
+                    android:src="@drawable/ic_refresh_black_24dp"
+                    android:text="Reset" />
+            </LinearLayout>
+
         </LinearLayout>
+
+        ////Score buttons
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="0">
+            android:layout_marginBottom="@dimen/spacing_8dp"
+            android:gravity="center">
 
-            <TextView
-                android:id="@+id/player_1_score_textview"
+            ////Player one score buttons
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="-"
-                android:textSize="@dimen/score_text" />
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/player_1_score_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/spacing_8dp"
+                    android:background="@drawable/button_border_2"
+                    android:clickable="true"
+                    android:text="+"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/player_1_foul_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_border_2"
+                    android:clickable="true"
+                    android:text="@string/foul"
+                    android:textSize="30sp" />
+            </LinearLayout>
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/myBlack" />
 
-            <TextView
-                android:id="@+id/player_2_score_textview"
+            ////Player two score buttons
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="-"
-                android:textSize="@dimen/score_text" />
-        </LinearLayout>
+                android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/player_2_score_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/spacing_8dp"
+                    android:background="@drawable/button_border_2"
+                    android:text="+"
+                    android:textSize="30sp" />
 
-            <ImageButton
-                android:id="@+id/reset_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/roundedcorner"
-                android:onClick="resetButton"
-                android:src="@drawable/ic_refresh_black_24dp"
-                android:text="Reset" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/player_1_score_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:background="@drawable/button_border_2"
-
-                android:clickable="true"
-                android:text="+"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/player_1_score_button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_border_2"
-                android:clickable="true"
-                android:text="@string/foul"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:background="@color/myBlack" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/player_2_score_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:background="@drawable/button_border_2"
-
-                android:text="+"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/player_2_score_button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_border_2"
-                android:text="@string/foul"
-                android:textSize="30sp" />
+                <Button
+                    android:id="@+id/player_2_foul_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_border_2"
+                    android:text="@string/foul"
+                    android:clickable="true"
+                    android:textSize="30sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

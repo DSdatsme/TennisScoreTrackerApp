@@ -1,13 +1,9 @@
 package com.example.dsdatsme.scorecard;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -26,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     TextView player2CurrentScoreTextView;
     Button player1ScoreButton;
     Button player2ScoreButton;
-    Button player1ScoreButton1;
-    Button player2ScoreButton1;
+    Button player1FoulButton;
+    Button player2FoulButton;
     ImageButton resetButton;
     TextView currentSetTextView;
     int[] totalPoins = {0, 0};
@@ -46,33 +42,32 @@ public class MainActivity extends AppCompatActivity {
         currentSetTextView = (TextView) findViewById(R.id.current_set_textview);
         player1ScoreButton = (Button) findViewById(R.id.player_1_score_button);
         player2ScoreButton = (Button) findViewById(R.id.player_2_score_button);
-        player1ScoreButton1 = (Button) findViewById(R.id.player_1_score_button1);
-        player2ScoreButton1 = (Button) findViewById(R.id.player_2_score_button1);
+        player1FoulButton = (Button) findViewById(R.id.player_1_foul_button);
+        player2FoulButton = (Button) findViewById(R.id.player_2_foul_button);
         resetButton = (ImageButton) findViewById(R.id.reset_button);
 
         ////////////////for player 1 button
-
         player1ScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 player1ScoreUpdate();
             }
         });
-        player1ScoreButton1.setOnClickListener(new View.OnClickListener() {
+        player1FoulButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 player2ScoreUpdate();
-
             }
         });
-////////////////for player 2 button
+
+        ////////////////for player 2 button
         player2ScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 player2ScoreUpdate();
             }
         });
-        player2ScoreButton1.setOnClickListener(new View.OnClickListener() {
+        player2FoulButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 player1ScoreUpdate();
@@ -80,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }///////////////////////End of onCreate()
+
 
     protected void setPoint(int player) {
         currentPlayer1Score = 0;
@@ -111,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         //for current score
 
 
-    }//end of se point
+    }//end of set point
 
     protected void declareWinner() {
         setContentView(R.layout.winner_layout);
@@ -121,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
             op = 1;
         else
             op = 2;
-
         TextView finalScorePlayer1 = (TextView) findViewById(R.id.player_1_final_optput);
         finalScorePlayer1.setText(String.valueOf(totalPoins[0]));
         TextView finalScorePlayer2 = (TextView) findViewById(R.id.player_2_final_output);
@@ -138,12 +133,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void shareButton(View view) {
         Intent msgShare = new Intent(Intent.ACTION_SEND);
-
         String msg = "Score:\nplayer 1:" + totalPoins[0] + "\nplayer 2: " + totalPoins[1];
         msgShare.setType("text/plain");
         msgShare.putExtra(Intent.EXTRA_SUBJECT, "Final Score");
         msgShare.putExtra(Intent.EXTRA_TEXT, msg);
-
         startActivity(Intent.createChooser(msgShare, "Share your Score!"));
 
     }
@@ -157,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
                 temp.setTextColor(getResources().getColor(R.color.myWhite));
             }
             totalPoins[i - 1] = 0;
-
         }
         currentSet = 0;
         currentPlayer1Score = 0;
@@ -173,9 +165,7 @@ public class MainActivity extends AppCompatActivity {
             setPoint(1);
         } else {
             currentPlayer1Score++;
-
         }
-
         player1CurrentScoreTextView.setText(String.valueOf(score[currentPlayer1Score]));
     }
 
@@ -184,21 +174,7 @@ public class MainActivity extends AppCompatActivity {
             setPoint(2);
         } else {
             currentPlayer2Score++;
-
         }
         player2CurrentScoreTextView.setText(String.valueOf(score[currentPlayer2Score]));
-    }
-
-    ////not working............................
-    public void didTapButton(View view) {
-        Button button = (Button) findViewById(R.id.player_1_score_button);
-        //ImageButton button = (ImageButton)findViewById(R.id.reset_button);
-        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-
-        // Use bounce interpolator with amplitude 0.2 and frequency 20
-        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.5, 20);
-        myAnim.setInterpolator(interpolator);
-
-        button.startAnimation(myAnim);
     }
 }
